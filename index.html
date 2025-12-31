@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Develop a JavaScript-based ATM system that allows users to check balance, deposit, 
+        // and withdraw money using conditional statements and loops, & Prompt
+        
+        
+        let Pin;
+        while(true){
+            Pin = prompt("please enter your 4 digit pin:");
+
+            if(Pin == null){
+                console.log("Please Enter Your Pin");
+                continue;
+            }
+
+            if(Pin.length == 4 && !isNaN(Pin)){
+                console.log("Welcome To The IdeoBank");
+                break;
+                }
+                
+              
+            if(Pin.length !==4 || !isNaN(Pin)){
+                console.log("Invalid Pin");
+                continue;
+            } 
+            
+        }
+
+        let balance=10000;
+
+        while(true){
+
+        console.log("Option 1: Balance Inquiry");
+        console.log("Option 2: Deposit");
+        console.log("Option 3: Withdraw");
+        console.log("Option 4: Exit")
+
+        let Options = Number(prompt("Please Choose an Option: 1, 2, 3, 4"));
+        
+        
+        
+        if(isNaN(Options)){
+            console.log("Invalid choice. Please enter a number.");
+            continue;
+        }
+
+        
+        switch(Options){
+            case 1: 
+            console.log("Your Balance is: Pkr", balance);
+               break;
+
+               case 2: 
+               let Deposit = Number(prompt("Enter The Amount You Want to Deposit"));
+               if(!isNaN(Deposit) && Deposit > 0){
+               balance = Deposit+balance;}
+               console.log("Deposit successful.");
+               console.log("Your New Balance Is: Pkr", balance);
+               break;
+
+               case 3:
+                let withdraw = Number(prompt("Enter Amount To Withdraw:"));
+                if(withdraw > balance || isNaN(withdraw) || withdraw <= 0){
+                    console.log("Insuffient Amount or Invalid Entry");
+                }
+                else{
+                balance= balance-withdraw;}
+                console.log("Your Current Balance is: Pkr", balance);
+                break;
+
+                case 4:
+                console.log("Thank you for using the ATM.");
+                break;
+
+                default:
+                    console.log("invalid choice");
+
+
+        }
+
+        if(Options === 4){
+            break;
+        }
+    }
+
+        
+    </script>
+</body>
+</html>
